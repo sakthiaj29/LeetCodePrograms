@@ -1,0 +1,48 @@
+class Solution {
+    public int romanToInt(String s) {
+        StringBuffer str=new StringBuffer(s);
+        int sum=0;
+        for(int i=1;i<str.length();i++){
+            if(SymToVal(str.substring(i-1,i+1))!=0){
+               sum+=SymToVal(str.substring(i-1,i+1)); 
+               str.delete(i-1,i+1);
+               i=i-1;
+            }
+        }
+        for(int i=0;i<str.length();i++){
+            sum+=SymToVal(str.substring(i,i+1));
+        }
+        return sum;
+    }
+    public int SymToVal(String ch){
+        if("I".equals(ch))
+            return 1;
+        else if("V".equals(ch))
+            return 5;
+        else if("X".equals(ch))
+            return 10;
+        else if("L".equals(ch))
+            return 50;
+         else if("C".equals(ch))
+            return 100;
+        else if("D".equals(ch))
+            return 500;
+        else if("M".equals(ch))
+            return 1000;
+        else if("IV".equals(ch))
+            return 4;
+        else if("IX".equals(ch))
+            return 9;
+        else if("XL".equals(ch))
+            return 40;
+        else if("XC".equals(ch))
+            return 90;
+        else if("CD".equals(ch))
+            return 400;
+        else if("CM".equals(ch))
+            return 900;
+        else{
+            return 0;
+        }
+    }
+}
