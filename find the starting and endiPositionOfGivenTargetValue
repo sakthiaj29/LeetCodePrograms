@@ -1,0 +1,18 @@
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int first=-1,second=-1,count=0;
+        int[] array=new int[2];
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==target){
+                if(count==0){
+                    first=i;
+                }
+                    second=i;
+                count++;
+            }
+        }
+        array[0]=first;
+        array[1]=second;
+        return array;
+    }
+}
